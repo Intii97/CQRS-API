@@ -9,5 +9,8 @@ namespace Application.Dtos
     public class DogDto
     {
         public string Name { get; set; } = string.Empty;
+        public string animalCanDo { get; set; } = string.Empty;
+        public bool LikesToPlay { get; set; }
+
     }
 }

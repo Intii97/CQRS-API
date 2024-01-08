@@ -59,7 +59,7 @@ namespace API.Controllers.DogsController
 
         // Delete a dog by Id
         [HttpDelete]
-        [Route("deleteDogById/{dogId}"), Authorize(Roles = "Admin")]
+        [Route("deleteDogById/{dogId}")]
         public async Task<IActionResult> DeleteDogById(Guid dogId)
         {
             return Ok(await _mediator.Send(new DeleteDogByIdCommand(dogId)));

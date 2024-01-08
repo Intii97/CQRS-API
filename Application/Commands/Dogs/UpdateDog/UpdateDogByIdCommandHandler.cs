@@ -4,7 +4,7 @@ using MediatR;
 
 namespace Application.Commands.Dogs.UpdateDog
 {
-    internal class UpdateDogByIdCommandHandler : IRequestHandler<UpdateDogByIdCommand, Dog>
+    public class UpdateDogByIdCommandHandler : IRequestHandler<UpdateDogByIdCommand, Dog>
     {
         private readonly MockDatabase _mockDatabase;
 
@@ -17,6 +17,8 @@ namespace Application.Commands.Dogs.UpdateDog
             Dog dogToUpdate = _mockDatabase.Dogs.FirstOrDefault(dog => dog.Id == request.Id)!;
 
             dogToUpdate.Name = request.UpdatedDog.Name;
+            dogToUpdate.animalCanDo = request.UpdatedDog.animalCanDo;
+            dogToUpdate.LikesToPlay = request.UpdatedDog.LikesToPlay;
 
             return Task.FromResult(dogToUpdate);
         }
